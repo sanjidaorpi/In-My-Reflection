@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+  <head>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/IDMNYU/p5.js-speech@0.0.3/lib/p5.speech.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-segmentation"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lilita+One&family=Rosario:ital,wght@1,700&display=swap" rel="stylesheet">
+    <script src="bg.js"></script>
+    <script src="sketch.js"></script>
+
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        background-color: #027da9;
+      }
+
+      #background-container {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        frame: none;
+      }
+
+      #canvas-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        pointer-events: auto;
+        frame: none;
+      }
+
+
+      .header {
+        color: #253874;
+        text-align: left;
+        padding-left: 15%;
+        font-family: "Lilita One", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: italic;
+        padding-top: 8vh;
+        font-size: 5rem;
+        opacity: 0.55;
+        letter-spacing: 10px;
+      }
+
+      .header2 {
+        color: #253874;
+        text-align: center;
+        padding-left: 15%;
+        font-family: "Lilita One", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-style: italic;
+        font-size: 1.5rem;
+      }
+      
+      .reflection {
+        color: white;
+        text-align: right;
+        padding-right: 15%;
+        font-weight: bold;
+        font-family: "Lilita One", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        font-size: 5rem;
+        transform: scaleY(-1);
+        opacity: 0.55;
+        letter-spacing: 10px;
+      }
+
+      .text {
+        color: rgb(255, 255, 255);
+        text-align: left;
+        padding-left: 15%;
+        font-family: "Lilita One", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: lighter;
+        font-size: 1.5rem;
+        letter-spacing: 1.5px;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!-- Background canvas -->
+    <div class="background">
+      <iframe id="background-container" src="bg.html"></iframe>
+
+      <div>
+        <h1 class="header">In My Reflection</h1>
+        <h3 class="header2">A SELF REFLECTION EXPERIENCE.</h3>
+        <h1 class="reflection">In My Reflection</h1>
+      </div>
+
+      <div style="padding-top: 2%;">
+        <h3 class="header2">
+          WHERE AM I?
+        </h3>
+      </div>
+
+      <div>
+        <h3 class="text" style="padding-right: 15vh; padding-left: 15vh;">
+          <!-- This header is inspired and based on this blog -->
+          <!-- https://www.reflection.app/blog/self-reflection-101-what-is-self-reflection-why-is-reflection-important -->
+          Socrates famously said, “The unexamined life is not worth living." This interactive experience
+          is a space for you to examine your life and engage in meaningful self reflection by answering a series of questions.
+          Dive deep into better knowing yourself.
+        </h3>
+      </div>
+
+      <div style="padding-top: 2%;">
+        <h3 class="header2">
+          HOW TO:
+        </h3>
+      </div>
+
+      <div>
+        <h3 class="text" style="padding-right: 15vh; padding-left: 15vh;">
+          <!-- This header is inspired and based on this blog -->
+          <!-- https://www.reflection.app/blog/self-reflection-101-what-is-self-reflection-why-is-reflection-important -->
+          Scroll below to get started. Click on the start button and enable camera and microphone access. There will be four
+          questions, each displayed at the top of the frame. When you are ready to answer a question, click on the microphone
+          button at the bottom of the frame, verbally answer the question and click the microphone button again to switch it off.
+          Your answer will be recorded and visibily appear on the screen along with your reflection. Take your time to think about 
+          your answer, you only have one chance. Once you are satisfied with 
+          the answer, click on the arrow button to the right to move on to the next question. Once you complete the four questions, you will see a reflection
+          of all of your answers, where you will be given an option to save a png of them.
+        </h3>
+      </div>
+
+      <!-- Main program canvas -->
+      <div>
+        <iframe id="canvas-container" src="sketch.html" scrolling="no" frameborder="0" ></iframe>
+      </div>
+    </div>
+
+  </body>
+</html>
+

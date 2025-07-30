@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-us">
+
+<head>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/IDMNYU/p5.js-speech@0.0.3/lib/p5.speech.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-core"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-converter"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-webgl"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/selfie_segmentation"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/body-segmentation"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Lilita+One&family=Rosario:ital,wght@1,700&display=swap" rel="stylesheet">
+
+    <script src="sketch.js"></script>
+    
+    <style>
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            font-family: "Lilita One", sans-serif;
+            position: absolute;
+            width: 80px;
+            height: 45px;
+            border-radius: 10px;
+            background-color: #FFF;
+            font-size: 16px;
+            border: 1.5px solid #000;
+            color: #000;
+      }
+      #canvas-container{
+        border: 2px solid #000;
+    }
+    </style>
+
+</head>
+
+<body>
+    <div id="canvas-container"></div>
+</body>
+
+</html>
